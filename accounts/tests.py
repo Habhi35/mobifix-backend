@@ -18,6 +18,7 @@ class AuthAPITestCase(APITestCase):
         res_register = self.client.post(register_url, register_data, format='json')
         self.assertEqual(res_register.status_code, status.HTTP_201_CREATED)
         self.assertIn('OTP sent successfully', res_register.data['message'])
+        self.assertIn('otp', res_register.data)
         
         # Verify user was created but is inactive
         user = User.objects.get(email='test@example.com')

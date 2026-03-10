@@ -47,6 +47,7 @@ class RegisterAPI(generics.GenericAPIView):
         
         return Response({
             "message": "User registered securely. OTP sent successfully to your mobile number.",
+            "otp": otp_code
         }, status=status.HTTP_201_CREATED)
 
 # Verify OTP API
